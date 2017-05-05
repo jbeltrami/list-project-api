@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 20170504220617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,5 +33,14 @@ ActiveRecord::Schema.define(version: 2) do
     t.index ["token"], name: "index_users_on_token", unique: true, using: :btree
   end
 
+  create_table "wishes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "wish",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wishes_on_user_id", using: :btree
+  end
+
   add_foreign_key "examples", "users"
+  add_foreign_key "wishes", "users"
 end
