@@ -2353,3 +2353,1080 @@ Completed 201 Created in 4087ms (Views: 13.7ms | ActiveRecord: 16.8ms)
 >>>>>>> working
 
 
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 16:15:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (7.7ms)[0m  [1m[33mUPDATE "users" SET "token" = '8022d7c2de9869b5df14f3734f86438f', "updated_at" = '2017-05-05 20:15:04.526884' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (6.41ms)
+Completed 200 OK in 170ms (Views: 16.0ms | ActiveRecord: 17.3ms)
+
+
+Started POST "/wishes" for 127.0.0.1 at 2017-05-05 16:15:11 -0400
+Processing by WishesController#create as */*
+  Parameters: {"wish"=>{"goal"=>"test"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "8022d7c2de9869b5df14f3734f86438f"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.1ms)[0m  [1m[32mINSERT INTO "wishes" ("user_id", "goal", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 6], ["goal", "test"], ["created_at", 2017-05-05 20:15:11 UTC], ["updated_at", 2017-05-05 20:15:11 UTC]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (4.47ms)
+Completed 201 Created in 96ms (Views: 13.8ms | ActiveRecord: 23.2ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 16:31:34 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (8.8ms)[0m  [1m[33mUPDATE "users" SET "token" = 'ff60e7e5e50181988d25ba6e099355fd', "updated_at" = '2017-05-05 20:31:34.982238' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (6.97ms)
+Completed 200 OK in 169ms (Views: 16.3ms | ActiveRecord: 15.7ms)
+
+
+Started POST "/wishes" for 127.0.0.1 at 2017-05-05 16:31:43 -0400
+Processing by WishesController#create as */*
+  Parameters: {"wish"=>{"goal"=>"make a wish"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "ff60e7e5e50181988d25ba6e099355fd"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (10.2ms)[0m  [1m[32mINSERT INTO "wishes" ("user_id", "goal", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 6], ["goal", "make a wish"], ["created_at", 2017-05-05 20:31:43 UTC], ["updated_at", 2017-05-05 20:31:43 UTC]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (4.73ms)
+Completed 201 Created in 100ms (Views: 14.9ms | ActiveRecord: 25.7ms)
+
+
+Started POST "/wishes" for 127.0.0.1 at 2017-05-05 16:31:49 -0400
+Processing by WishesController#create as */*
+  Parameters: {"wish"=>{"goal"=>"make a wish2"}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "ff60e7e5e50181988d25ba6e099355fd"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "wishes" ("user_id", "goal", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 6], ["goal", "make a wish2"], ["created_at", 2017-05-05 20:31:49 UTC], ["updated_at", 2017-05-05 20:31:49 UTC]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (0.76ms)
+Completed 201 Created in 21ms (Views: 2.3ms | ActiveRecord: 8.8ms)
+
+
+Started DELETE "/sign-out/6" for 127.0.0.1 at 2017-05-05 16:31:53 -0400
+Processing by UsersController#signout as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "ff60e7e5e50181988d25ba6e099355fd"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (6.1ms)[0m  [1m[33mUPDATE "users" SET "token" = '17b18c8a0d9e23f2059817ef1b6f3231', "updated_at" = '2017-05-05 20:31:53.091503' WHERE "users"."id" = $1[0m  [["id", 6]]
+Completed 204 No Content in 12ms (ActiveRecord: 6.8ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 16:44:21 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (11.4ms)[0m  [1m[33mUPDATE "users" SET "token" = '198347792e08f6a1b395e176ee87d893', "updated_at" = '2017-05-05 20:44:23.055269' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (6.8ms)
+Completed 200 OK in 194ms (Views: 19.8ms | ActiveRecord: 20.4ms)
+
+
+Started GET "/wishes" for 127.0.0.1 at 2017-05-05 16:44:25 -0400
+Processing by WishesController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "198347792e08f6a1b395e176ee87d893"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.9ms)[0m  [1m[34mSELECT "wishes".* FROM "wishes"[0m
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (72.63ms)
+Completed 200 OK in 117ms (Views: 88.2ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/wishes" for 127.0.0.1 at 2017-05-05 16:45:36 -0400
+Processing by WishesController#index as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "198347792e08f6a1b395e176ee87d893"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.7ms)[0m  [1m[34mSELECT "wishes".* FROM "wishes"[0m
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (61.4ms)
+Completed 200 OK in 100ms (Views: 72.1ms | ActiveRecord: 5.2ms)
+
+
+Started DELETE "/sign-out/6" for 127.0.0.1 at 2017-05-05 16:45:42 -0400
+Processing by UsersController#signout as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "198347792e08f6a1b395e176ee87d893"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (3.4ms)[0m  [1m[33mUPDATE "users" SET "token" = '4ba0f5e7e4ada16b0975a39e5209e553', "updated_at" = '2017-05-05 20:45:42.666984' WHERE "users"."id" = $1[0m  [["id", 6]]
+Completed 204 No Content in 16ms (ActiveRecord: 4.3ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 17:42:11 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (15.1ms)[0m  [1m[33mUPDATE "users" SET "token" = '473b758f3ed29e91508e324a5805967b', "updated_at" = '2017-05-05 21:42:11.565068' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (3.39ms)
+Completed 200 OK in 181ms (Views: 13.1ms | ActiveRecord: 22.1ms)
+
+
+Started GET "/wishes" for 127.0.0.1 at 2017-05-05 17:42:14 -0400
+Processing by WishesController#index as */*
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "473b758f3ed29e91508e324a5805967b"], ["LIMIT", 1]]
+  [1m[36mWish Load (1.3ms)[0m  [1m[34mSELECT "wishes".* FROM "wishes"[0m
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (67.95ms)
+Completed 200 OK in 82ms (Views: 69.4ms | ActiveRecord: 8.3ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 17:46:50 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (3.4ms)[0m  [1m[33mUPDATE "users" SET "token" = '648c2e40fe36ed9875f3a813a5d3f78a', "updated_at" = '2017-05-05 21:46:51.028507' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (2.77ms)
+Completed 200 OK in 146ms (Views: 6.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/wishes" for 127.0.0.1 at 2017-05-05 17:46:52 -0400
+Processing by WishesController#index as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "648c2e40fe36ed9875f3a813a5d3f78a"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.7ms)[0m  [1m[34mSELECT "wishes".* FROM "wishes"[0m
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (53.6ms)
+Completed 200 OK in 67ms (Views: 58.6ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 17:56:48 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (13.2ms)[0m  [1m[33mUPDATE "users" SET "token" = 'c53b323d64070c2641852b6e8e4a9874', "updated_at" = '2017-05-05 21:56:48.919160' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (16.45ms)
+Completed 200 OK in 183ms (Views: 20.3ms | ActiveRecord: 18.4ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 17:57:03 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (17.2ms)[0m  [1m[33mUPDATE "users" SET "token" = '83c612ccbb98a5193664ee8440542cef', "updated_at" = '2017-05-05 21:57:03.816988' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.42ms)
+Completed 200 OK in 126ms (Views: 10.2ms | ActiveRecord: 18.7ms)
+
+
+Started GET "/wishes" for 127.0.0.1 at 2017-05-05 17:57:05 -0400
+Processing by WishesController#index as */*
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "83c612ccbb98a5193664ee8440542cef"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.5ms)[0m  [1m[34mSELECT "wishes".* FROM "wishes"[0m
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (89.56ms)
+Completed 200 OK in 111ms (Views: 95.3ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:09:11 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (19.5ms)[0m  [1m[33mUPDATE "users" SET "token" = '4aef8f16ec994027d0a88d8fe9bfa8c6', "updated_at" = '2017-05-05 22:09:12.011428' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (3.21ms)
+Completed 200 OK in 179ms (Views: 9.7ms | ActiveRecord: 27.5ms)
+
+
+Started GET "/wishes" for 127.0.0.1 at 2017-05-05 18:09:15 -0400
+Processing by WishesController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "4aef8f16ec994027d0a88d8fe9bfa8c6"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.7ms)[0m  [1m[34mSELECT "wishes".* FROM "wishes"[0m
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (126.22ms)
+Completed 200 OK in 146ms (Views: 135.5ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/wishes/[object%20Object]" for 127.0.0.1 at 2017-05-05 18:09:21 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/wishes/[object%20Object]"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:10:16 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (11.8ms)[0m  [1m[33mUPDATE "users" SET "token" = 'd11062737f87be6a953e7d19785dd7fa', "updated_at" = '2017-05-05 22:10:16.725387' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.51ms)
+Completed 200 OK in 118ms (Views: 1.9ms | ActiveRecord: 12.2ms)
+
+
+Started POST "/wishes/[object%20Object]" for 127.0.0.1 at 2017-05-05 18:10:21 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/wishes/[object%20Object]"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/wishes/[object%20Object]" for 127.0.0.1 at 2017-05-05 18:10:31 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/wishes/[object%20Object]"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:11:51 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (3.2ms)[0m  [1m[33mUPDATE "users" SET "token" = '389e04c3808b358c4f666341551ec2ff', "updated_at" = '2017-05-05 22:11:51.725004' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (2.37ms)
+Completed 200 OK in 178ms (Views: 20.4ms | ActiveRecord: 11.6ms)
+
+
+Started POST "/wishes/[object%20Object]" for 127.0.0.1 at 2017-05-05 18:11:56 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/wishes/[object%20Object]"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/wishes/[object%20Object]" for 127.0.0.1 at 2017-05-05 18:12:02 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/wishes/[object%20Object]"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/wishes/[object%20Object]" for 127.0.0.1 at 2017-05-05 18:12:10 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/wishes/[object%20Object]"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:13:52 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (15.2ms)[0m  [1m[33mUPDATE "users" SET "token" = '71ee6c262c5793d30589d1b8b36d9029', "updated_at" = '2017-05-05 22:13:52.242343' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (11.17ms)
+Completed 200 OK in 171ms (Views: 15.2ms | ActiveRecord: 22.3ms)
+
+
+Started POST "/wishes/[object%20Object]" for 127.0.0.1 at 2017-05-05 18:13:56 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/wishes/[object%20Object]"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:14:18 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (11.9ms)[0m  [1m[33mUPDATE "users" SET "token" = '43439da27165488380924b93c57647ce', "updated_at" = '2017-05-05 22:14:18.451334' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.63ms)
+Completed 200 OK in 130ms (Views: 11.0ms | ActiveRecord: 12.5ms)
+
+
+Started POST "/wishes/[object%20Object]" for 127.0.0.1 at 2017-05-05 18:14:22 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/wishes/[object%20Object]"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:14:42 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (7.2ms)[0m  [1m[33mUPDATE "users" SET "token" = '2f49f482df2467887fcf4449dfcd7864', "updated_at" = '2017-05-05 22:14:42.851687' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (3.11ms)
+Completed 200 OK in 172ms (Views: 18.1ms | ActiveRecord: 12.9ms)
+
+
+Started POST "/wishes/[object%20Object]" for 127.0.0.1 at 2017-05-05 18:14:51 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/wishes/[object%20Object]"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:15:29 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (6.3ms)[0m  [1m[33mUPDATE "users" SET "token" = '97ce973c7b7ccbb80b171aea0a7614f9', "updated_at" = '2017-05-05 22:15:29.714959' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (6.99ms)
+Completed 200 OK in 132ms (Views: 9.0ms | ActiveRecord: 8.6ms)
+
+
+Started POST "/wishes/[object%20Object]" for 127.0.0.1 at 2017-05-05 18:15:37 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/wishes/[object%20Object]"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:17:42 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (17.9ms)[0m  [1m[33mUPDATE "users" SET "token" = 'fecf8588a7042c9892b128b11a2c78f9', "updated_at" = '2017-05-05 22:17:42.822363' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (1.94ms)
+Completed 200 OK in 151ms (Views: 11.9ms | ActiveRecord: 19.3ms)
+
+
+Started POST "/wishes/[object%20Object]" for 127.0.0.1 at 2017-05-05 18:17:48 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/wishes/[object%20Object]"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:18:03 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (6.4ms)[0m  [1m[33mUPDATE "users" SET "token" = '824eeb87e47e69fcf73a6f22abf30318', "updated_at" = '2017-05-05 22:18:03.895328' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.49ms)
+Completed 200 OK in 107ms (Views: 2.4ms | ActiveRecord: 7.1ms)
+
+
+Started POST "/wishes/3" for 127.0.0.1 at 2017-05-05 18:18:09 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/wishes/3"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:18:35 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (6.9ms)[0m  [1m[33mUPDATE "users" SET "token" = 'c07d7b132859458eb250d9e56e295e2a', "updated_at" = '2017-05-05 22:18:35.177345' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (11.21ms)
+Completed 200 OK in 155ms (Views: 14.4ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/wishes/3" for 127.0.0.1 at 2017-05-05 18:18:40 -0400
+Processing by WishesController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "c07d7b132859458eb250d9e56e295e2a"], ["LIMIT", 1]]
+  [1m[36mWish Load (28.5ms)[0m  [1m[34mSELECT  "wishes".* FROM "wishes" WHERE "wishes"."user_id" = $1 AND "wishes"."id" = $2 LIMIT $3[0m  [["user_id", 6], ["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "c07d7b132859458eb250d9e56e295e2a"], ["LIMIT", 1]]
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (1.55ms)
+Completed 200 OK in 175ms (Views: 3.1ms | ActiveRecord: 29.9ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:37:59 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[33mUPDATE "users" SET "token" = '5880d9699320d476b61765fbf5cd5693', "updated_at" = '2017-05-05 22:37:59.490656' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (2.42ms)
+Completed 200 OK in 140ms (Views: 5.9ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:39:53 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (23.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (25.3ms)[0m  [1m[33mUPDATE "users" SET "token" = '10d0bdddf304d87bb089b1cfba1a6725', "updated_at" = '2017-05-05 22:39:53.242585' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (3.01ms)
+Completed 200 OK in 192ms (Views: 6.8ms | ActiveRecord: 49.1ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:40:02 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (7.4ms)[0m  [1m[33mUPDATE "users" SET "token" = 'd03de41c5f4d917b7fa2a35324c27325', "updated_at" = '2017-05-05 22:40:02.443856' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (1.31ms)
+Completed 200 OK in 122ms (Views: 2.2ms | ActiveRecord: 16.2ms)
+
+
+Started GET "/wishes" for 127.0.0.1 at 2017-05-05 18:40:04 -0400
+Processing by WishesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "d03de41c5f4d917b7fa2a35324c27325"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.6ms)[0m  [1m[34mSELECT "wishes".* FROM "wishes"[0m
+[active_model_serializers]   [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (114.73ms)
+Completed 200 OK in 132ms (Views: 122.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/wishes/3" for 127.0.0.1 at 2017-05-05 18:40:08 -0400
+Processing by WishesController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "d03de41c5f4d917b7fa2a35324c27325"], ["LIMIT", 1]]
+  [1m[36mWish Load (12.6ms)[0m  [1m[34mSELECT  "wishes".* FROM "wishes" WHERE "wishes"."user_id" = $1 AND "wishes"."id" = $2 LIMIT $3[0m  [["user_id", 6], ["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "d03de41c5f4d917b7fa2a35324c27325"], ["LIMIT", 1]]
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (1.1ms)
+Completed 200 OK in 32ms (Views: 2.1ms | ActiveRecord: 14.6ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:41:26 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (18.9ms)[0m  [1m[33mUPDATE "users" SET "token" = 'fc90c224e66105c16f7c0cf1a5d04966', "updated_at" = '2017-05-05 22:41:26.760117' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (5.76ms)
+Completed 200 OK in 198ms (Views: 9.9ms | ActiveRecord: 20.0ms)
+
+
+Started GET "/wishes/1" for 127.0.0.1 at 2017-05-05 18:41:30 -0400
+Processing by WishesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "fc90c224e66105c16f7c0cf1a5d04966"], ["LIMIT", 1]]
+  [1m[36mWish Load (12.0ms)[0m  [1m[34mSELECT  "wishes".* FROM "wishes" WHERE "wishes"."user_id" = $1 AND "wishes"."id" = $2 LIMIT $3[0m  [["user_id", 6], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "fc90c224e66105c16f7c0cf1a5d04966"], ["LIMIT", 1]]
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (2.69ms)
+Completed 200 OK in 34ms (Views: 3.7ms | ActiveRecord: 12.7ms)
+
+
+Started POST "/wishes" for 127.0.0.1 at 2017-05-05 18:42:03 -0400
+Processing by WishesController#create as */*
+  Parameters: {"wish"=>{"goal"=>"Making a wish"}}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "fc90c224e66105c16f7c0cf1a5d04966"], ["LIMIT", 1]]
+  [1m[35m (23.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (43.4ms)[0m  [1m[32mINSERT INTO "wishes" ("user_id", "goal", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 6], ["goal", "Making a wish"], ["created_at", 2017-05-05 22:42:03 UTC], ["updated_at", 2017-05-05 22:42:03 UTC]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (0.93ms)
+Completed 201 Created in 120ms (Views: 10.2ms | ActiveRecord: 74.1ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:42:56 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (17.7ms)[0m  [1m[33mUPDATE "users" SET "token" = '38ab80ce5e9f03b498e8e68fc875839e', "updated_at" = '2017-05-05 22:42:56.128694' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (6.88ms)
+Completed 200 OK in 126ms (Views: 7.8ms | ActiveRecord: 18.4ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:44:36 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (7.9ms)[0m  [1m[33mUPDATE "users" SET "token" = '037183c983a59ee54d9c463f40bc75b5', "updated_at" = '2017-05-05 22:44:36.066845' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (16.52ms)
+Completed 200 OK in 163ms (Views: 20.3ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/wishes/" for 127.0.0.1 at 2017-05-05 18:44:39 -0400
+Processing by WishesController#index as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "037183c983a59ee54d9c463f40bc75b5"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.7ms)[0m  [1m[34mSELECT "wishes".* FROM "wishes"[0m
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (155.76ms)
+Completed 200 OK in 186ms (Views: 169.9ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 18:45:49 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (6.7ms)[0m  [1m[33mUPDATE "users" SET "token" = 'fd88f5802dad9006ac62e6848224a0e6', "updated_at" = '2017-05-05 22:45:49.635619' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.75ms)
+Completed 200 OK in 114ms (Views: 2.1ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/wishes/" for 127.0.0.1 at 2017-05-05 18:45:52 -0400
+Processing by WishesController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "fd88f5802dad9006ac62e6848224a0e6"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.5ms)[0m  [1m[34mSELECT "wishes".* FROM "wishes"[0m
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (114.72ms)
+Completed 200 OK in 139ms (Views: 133.5ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 19:05:21 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (12.5ms)[0m  [1m[33mUPDATE "users" SET "token" = '45a9f10504e21ffcdb268c866b58d705', "updated_at" = '2017-05-05 23:05:21.507549' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (2.79ms)
+Completed 200 OK in 157ms (Views: 6.5ms | ActiveRecord: 14.6ms)
+
+
+Started PATCH "/wishes/3" for 127.0.0.1 at 2017-05-05 19:05:35 -0400
+Processing by WishesController#update as */*
+  Parameters: {"wishes"=>{"id"=>"3"}, "wish"=>{"goal"=>"new wish"}, "id"=>"3"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "45a9f10504e21ffcdb268c866b58d705"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.8ms)[0m  [1m[34mSELECT  "wishes".* FROM "wishes" WHERE "wishes"."user_id" = $1 AND "wishes"."id" = $2 LIMIT $3[0m  [["user_id", 6], ["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "45a9f10504e21ffcdb268c866b58d705"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "wishes" SET "goal" = $1, "updated_at" = $2 WHERE "wishes"."id" = $3[0m  [["goal", "new wish"], ["updated_at", 2017-05-05 23:05:35 UTC], ["id", 3]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (5.89ms)
+Completed 200 OK in 128ms (Views: 7.2ms | ActiveRecord: 9.3ms)
+
+
+Started DELETE "/sign-out/6" for 127.0.0.1 at 2017-05-05 19:06:20 -0400
+Processing by UsersController#signout as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "45a9f10504e21ffcdb268c866b58d705"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (6.6ms)[0m  [1m[33mUPDATE "users" SET "token" = 'b19ce676f3c8285a548c678b4a0493f4', "updated_at" = '2017-05-05 23:06:20.332318' WHERE "users"."id" = $1[0m  [["id", 6]]
+Completed 204 No Content in 30ms (ActiveRecord: 8.2ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 19:10:14 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"lukao", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lukao"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 28ms (ActiveRecord: 1.1ms)
+
+
+Started POST "/sign-up" for 127.0.0.1 at 2017-05-05 19:10:41 -0400
+Processing by UsersController#signup as */*
+  Parameters: {"credentials"=>{"email"=>"lukao", "password"=>"[FILTERED]"}, "submit"=>"Sign up!"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (16.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lukao"], ["LIMIT", 1]]
+  [1m[35mSQL (11.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "lukao"], ["token", "7829d35ea2fa00c700d8ff064c691623"], ["password_digest", "$2a$10$Mh2oAadW.FQTkjhY3Lhl2ucaa.snE/tvmoIGzup4SH.ggI/nIdgM2"], ["created_at", 2017-05-05 23:10:41 UTC], ["updated_at", 2017-05-05 23:10:41 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Exists (6.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "lukao"], ["id", 13], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Json (2.12ms)
+Completed 201 Created in 443ms (Views: 4.2ms | ActiveRecord: 35.1ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-05 19:10:51 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"lukao", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lukao"], ["LIMIT", 1]]
+  [1m[35mSQL (19.2ms)[0m  [1m[33mUPDATE "users" SET "token" = 'c336bf39f04578d5dad658cb407158d6', "updated_at" = '2017-05-05 23:10:51.336533' WHERE "users"."id" = $1[0m  [["id", 13]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.51ms)
+Completed 200 OK in 118ms (Views: 1.4ms | ActiveRecord: 19.7ms)
+
+
+Started POST "/wishes" for 127.0.0.1 at 2017-05-05 19:11:11 -0400
+Processing by WishesController#create as */*
+  Parameters: {"wish"=>{"goal"=>"Comer no applbees"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "c336bf39f04578d5dad658cb407158d6"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "wishes" ("user_id", "goal", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 13], ["goal", "Comer no applbees"], ["created_at", 2017-05-05 23:11:11 UTC], ["updated_at", 2017-05-05 23:11:11 UTC]]
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (2.02ms)
+Completed 201 Created in 19ms (Views: 3.5ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/wishes" for 127.0.0.1 at 2017-05-05 19:11:18 -0400
+Processing by WishesController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "c336bf39f04578d5dad658cb407158d6"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.6ms)[0m  [1m[34mSELECT "wishes".* FROM "wishes"[0m
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (69.58ms)
+Completed 200 OK in 78ms (Views: 72.8ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-06 08:57:06 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (2.5ms)[0m  [1m[33mUPDATE "users" SET "token" = 'e678c2e351b1452d00d17af24d77fb2b', "updated_at" = '2017-05-06 12:57:07.967188' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (10.7ms)
+Completed 200 OK in 214ms (Views: 25.6ms | ActiveRecord: 36.6ms)
+
+
+Started GET "/wishes" for 127.0.0.1 at 2017-05-06 08:57:12 -0400
+Processing by WishesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "e678c2e351b1452d00d17af24d77fb2b"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.7ms)[0m  [1m[34mSELECT "wishes".* FROM "wishes"[0m
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (70.0ms)
+Completed 200 OK in 110ms (Views: 87.6ms | ActiveRecord: 11.6ms)
+
+
+Started PATCH "/wishes/1" for 127.0.0.1 at 2017-05-06 08:58:20 -0400
+Processing by WishesController#update as */*
+  Parameters: {"wishes"=>{"id"=>"1"}, "wish"=>{"goal"=>"another test wish"}, "id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "e678c2e351b1452d00d17af24d77fb2b"], ["LIMIT", 1]]
+  [1m[36mWish Load (3.4ms)[0m  [1m[34mSELECT  "wishes".* FROM "wishes" WHERE "wishes"."user_id" = $1 AND "wishes"."id" = $2 LIMIT $3[0m  [["user_id", 6], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "e678c2e351b1452d00d17af24d77fb2b"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (17.0ms)[0m  [1m[33mUPDATE "wishes" SET "goal" = $1, "updated_at" = $2 WHERE "wishes"."id" = $3[0m  [["goal", "another test wish"], ["updated_at", 2017-05-06 12:58:20 UTC], ["id", 1]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (0.94ms)
+Completed 200 OK in 69ms (Views: 1.9ms | ActiveRecord: 23.4ms)
+
+
+Started PATCH "/wishes/1" for 127.0.0.1 at 2017-05-06 08:58:44 -0400
+Processing by WishesController#update as */*
+  Parameters: {"wishes"=>{"id"=>"1"}, "wish"=>{"goal"=>"another test wish"}, "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "e678c2e351b1452d00d17af24d77fb2b"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.7ms)[0m  [1m[34mSELECT  "wishes".* FROM "wishes" WHERE "wishes"."user_id" = $1 AND "wishes"."id" = $2 LIMIT $3[0m  [["user_id", 6], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "e678c2e351b1452d00d17af24d77fb2b"], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (0.55ms)
+Completed 200 OK in 15ms (Views: 1.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/wishes" for 127.0.0.1 at 2017-05-06 08:58:47 -0400
+Processing by WishesController#index as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "e678c2e351b1452d00d17af24d77fb2b"], ["LIMIT", 1]]
+  [1m[36mWish Load (1.5ms)[0m  [1m[34mSELECT "wishes".* FROM "wishes"[0m
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (50.71ms)
+Completed 200 OK in 58ms (Views: 46.3ms | ActiveRecord: 10.1ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-06 09:03:25 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"test", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "users" SET "token" = '0082d5642886c840e3cb72e6e03cf9b0', "updated_at" = '2017-05-06 13:03:25.101955' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (2.84ms)
+Completed 200 OK in 144ms (Views: 6.6ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/wishes" for 127.0.0.1 at 2017-05-06 09:03:38 -0400
+Processing by WishesController#create as */*
+  Parameters: {"wish"=>{"goal"=>"coffee"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "0082d5642886c840e3cb72e6e03cf9b0"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (26.7ms)[0m  [1m[32mINSERT INTO "wishes" ("user_id", "goal", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["goal", "coffee"], ["created_at", 2017-05-06 13:03:38 UTC], ["updated_at", 2017-05-06 13:03:38 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (1.57ms)
+Completed 201 Created in 62ms (Views: 4.9ms | ActiveRecord: 28.3ms)
+
+
+Started POST "/sign-in" for 127.0.0.1 at 2017-05-06 09:04:46 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"a", "password"=>"[FILTERED]"}, "submit"=>"Sign in"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE "users" SET "token" = '45614b2c5a22e9810a1b134d1f1e6da4', "updated_at" = '2017-05-06 13:04:46.893482' WHERE "users"."id" = $1[0m  [["id", 6]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (2.29ms)
+Completed 200 OK in 132ms (Views: 5.9ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/wishes" for 127.0.0.1 at 2017-05-06 09:04:53 -0400
+Processing by WishesController#create as */*
+  Parameters: {"wish"=>{"goal"=>"coffee"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "45614b2c5a22e9810a1b134d1f1e6da4"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "wishes" ("user_id", "goal", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 6], ["goal", "coffee"], ["created_at", 2017-05-06 13:04:53 UTC], ["updated_at", 2017-05-06 13:04:53 UTC]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (1.72ms)
+Completed 201 Created in 37ms (Views: 4.5ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/wishes" for 127.0.0.1 at 2017-05-06 09:05:13 -0400
+Processing by WishesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "45614b2c5a22e9810a1b134d1f1e6da4"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.5ms)[0m  [1m[34mSELECT "wishes".* FROM "wishes"[0m
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (65.6ms)
+Completed 200 OK in 73ms (Views: 66.7ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/wishes/3" for 127.0.0.1 at 2017-05-06 09:05:39 -0400
+Processing by WishesController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "45614b2c5a22e9810a1b134d1f1e6da4"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.8ms)[0m  [1m[34mSELECT  "wishes".* FROM "wishes" WHERE "wishes"."user_id" = $1 AND "wishes"."id" = $2 LIMIT $3[0m  [["user_id", 6], ["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "45614b2c5a22e9810a1b134d1f1e6da4"], ["LIMIT", 1]]
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (1.16ms)
+Completed 200 OK in 17ms (Views: 2.1ms | ActiveRecord: 3.3ms)
+
+
+Started PATCH "/wishes/3" for 127.0.0.1 at 2017-05-06 09:05:58 -0400
+Processing by WishesController#update as */*
+  Parameters: {"wishes"=>{"id"=>"3"}, "wish"=>{"goal"=>"coffee"}, "id"=>"3"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "45614b2c5a22e9810a1b134d1f1e6da4"], ["LIMIT", 1]]
+  [1m[36mWish Load (0.9ms)[0m  [1m[34mSELECT  "wishes".* FROM "wishes" WHERE "wishes"."user_id" = $1 AND "wishes"."id" = $2 LIMIT $3[0m  [["user_id", 6], ["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "45614b2c5a22e9810a1b134d1f1e6da4"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "wishes" SET "goal" = $1, "updated_at" = $2 WHERE "wishes"."id" = $3[0m  [["goal", "coffee"], ["updated_at", 2017-05-06 13:05:58 UTC], ["id", 3]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered WishSerializer with ActiveModelSerializers::Adapter::Json (2.86ms)
+Completed 200 OK in 55ms (Views: 7.8ms | ActiveRecord: 4.6ms)
+
+
