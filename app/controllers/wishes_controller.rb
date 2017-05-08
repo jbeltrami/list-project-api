@@ -1,4 +1,4 @@
-class WishesController < ApplicationController
+class WishesController < ProtectedController
   before_action :set_wish, only: %i[show update destroy]
   before_action :validate_user
 
