@@ -4,6 +4,8 @@
 https://jbeltrami.github.io/front-end-list-development/
 https://tranquil-stream-75403.herokuapp.com/
 
+Front-end repo: https://github.com/jbeltrami/front-end-list-development
+
 #TECHNOLOGIES:
   This project was developed using Ruby, Rails.
 
