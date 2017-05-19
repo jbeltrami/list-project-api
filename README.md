@@ -1,10 +1,10 @@
 #README - LIST PROJECT (API)
 
-#URL: The result of this project can be seen in the following URL:
-https://jbeltrami.github.io/front-end-list-development/
-https://tranquil-stream-75403.herokuapp.com/
-
-Front-end repo: https://github.com/jbeltrami/front-end-list-development
+#URL: The result of this project can be seen in the following URLs:
+- FRONTEND REPO: https://github.com/jbeltrami/front-end-list-development
+- FRONTEND DEPLOYED: https://jbeltrami.github.io/front-end-list-development/
+- BACKEND REPO: https://github.com/jbeltrami/list-project-api
+- BACKEND DEPLOYED: https://tranquil-stream-75403.herokuapp.com/
 
 #TECHNOLOGIES:
   This project was developed using Ruby, Rails.
